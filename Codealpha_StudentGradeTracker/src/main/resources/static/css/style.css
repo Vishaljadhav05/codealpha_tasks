@@ -1,0 +1,376 @@
+:root {
+	--ink: #1b2430;
+	--muted: #5d6877;
+	--paper: #f5f6f8;
+	--surface: #ffffff;
+	--rule: #d6dbe3;
+	--accent: #1f4e8c;
+	--accent-ink: #ffffff;
+	--danger: #b42318;
+	--grade-a: #1e7b4b;
+	--grade-b: #2a7f8f;
+	--grade-c: #a8650d;
+	--grade-d: #c2570c;
+	--grade-f: #b42318;
+}
+
+@media ( prefers-color-scheme : dark) {
+	:root {
+		--ink: #e8ecf2;
+		--muted: #9aa5b5;
+		--paper: #131820;
+		--surface: #1a212b;
+		--rule: #2f3947;
+		--accent: #7fb0f2;
+		--accent-ink: #0d1520;
+		--danger: #ff8a7a;
+		--grade-a: #5fd197;
+		--grade-b: #63c4d4;
+		--grade-c: #f0b45a;
+		--grade-d: #f2955a;
+		--grade-f: #ff8a7a;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: "Public Sans", system-ui, -apple-system, "Segoe UI",
+		sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+h1, h2 {
+	font-family: "Newsreader", Georgia, serif;
+	font-weight: 600;
+	line-height: 1.2;
+	margin: 0 0 .75rem;
+}
+
+h1 {
+	font-size: 2.1rem;
+}
+
+h2 {
+	font-size: 1.35rem;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.strong {
+	font-weight: 600;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: .9rem clamp(1rem, 4vw, 3rem);
+	background: var(--surface);
+	border-bottom: 2px solid var(--ink);
+}
+
+.brand {
+	font-family: "Newsreader", Georgia, serif;
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: var(--ink);
+	text-decoration: none;
+}
+
+.page {
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 2rem clamp(1rem, 4vw, 2rem) 4rem;
+}
+
+.btn {
+	display: inline-block;
+	padding: .55rem 1rem;
+	border: 1px solid var(--ink);
+	border-radius: 4px;
+	background: var(--surface);
+	color: var(--ink);
+	font: inherit;
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: var(--paper);
+}
+
+.btn-primary {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: var(--accent-ink);
+}
+
+.btn-primary:hover {
+	filter: brightness(1.1);
+	background: var(--accent);
+}
+
+.btn-danger {
+	border-color: var(--danger);
+	color: var(--danger);
+}
+
+.link {
+	color: var(--accent);
+	text-underline-offset: 3px;
+}
+
+.link-btn {
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	color: var(--danger);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 2px;
+}
+
+.flash {
+	padding: .7rem 1rem;
+	border-left: 4px solid var(--grade-a);
+	background: var(--surface);
+}
+
+/* Ledger strip: statistics read like totals at the foot of a gradebook column */
+.ledger {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1.25rem 0 2rem;
+	background: var(--surface);
+	border-top: 2px solid var(--ink);
+	border-bottom: 1px solid var(--rule);
+}
+
+.ledger>div {
+	flex: 1 1 140px;
+	padding: 1rem 1.1rem;
+	border-right: 1px solid var(--rule);
+	display: flex;
+	flex-direction: column;
+}
+
+.ledger>div:last-child {
+	border-right: 0;
+}
+
+.ledger-value {
+	font-family: "Newsreader", Georgia, serif;
+	font-size: 2.2rem;
+	font-weight: 600;
+	line-height: 1.1;
+}
+
+.ledger-value.small {
+	font-size: 1.25rem;
+	padding: .55rem 0 .35rem;
+}
+
+.ledger-label {
+	color: var(--muted);
+	font-size: .85rem;
+}
+
+.search {
+	display: flex;
+	gap: .5rem;
+	align-items: center;
+	margin-bottom: 1rem;
+	flex-wrap: wrap;
+}
+
+.search input {
+	flex: 1 1 240px;
+}
+
+input[type=search], input[type=text], input[type=number], input:not([type])
+	{
+	width: 100%;
+	padding: .55rem .7rem;
+	font: inherit;
+	color: var(--ink);
+	background: var(--surface);
+	border: 1px solid var(--rule);
+	border-radius: 4px;
+}
+
+.table-wrap {
+	overflow-x: auto;
+	background: var(--surface);
+}
+
+table.ruled {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.ruled th, .ruled td {
+	padding: .7rem .9rem;
+	text-align: left;
+	border-bottom: 1px solid var(--rule);
+	white-space: nowrap;
+}
+
+.ruled thead th {
+	border-bottom: 2px solid var(--ink);
+	font-weight: 600;
+	font-size: .9rem;
+	color: var(--muted);
+}
+
+.ruled .num {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.ruled .actions {
+	text-align: right;
+}
+
+.ruled .actions>* {
+	margin-left: .9rem;
+	display: inline;
+}
+
+.ruled tbody tr:hover {
+	background: var(--paper);
+}
+
+.letter {
+	display: inline-block;
+	min-width: 1.9rem;
+	text-align: center;
+	font-weight: 600;
+	border: 1.5px solid currentColor;
+	border-radius: 4px;
+	padding: 0 .3rem;
+}
+
+.letter-A {
+	color: var(--grade-a);
+}
+
+.letter-B {
+	color: var(--grade-b);
+}
+
+.letter-C {
+	color: var(--grade-c);
+}
+
+.letter-D {
+	color: var(--grade-d);
+}
+
+.letter-F {
+	color: var(--grade-f);
+}
+
+.empty {
+	padding: 2rem 1.25rem;
+	background: var(--surface);
+	border: 1px dashed var(--rule);
+	text-align: center;
+}
+
+.title-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.title-actions {
+	display: flex;
+	gap: .6rem;
+}
+
+.title-actions form {
+	margin: 0;
+}
+
+.two-col {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	gap: 2rem;
+	align-items: start;
+}
+
+@media ( max-width : 760px) {
+	.two-col {
+		grid-template-columns: 1fr;
+	}
+}
+
+.card {
+	background: var(--surface);
+	border: 1px solid var(--rule);
+	padding: 1.25rem;
+}
+
+.form {
+	max-width: 460px;
+}
+
+.field {
+	margin-bottom: 1rem;
+}
+
+.field label {
+	display: block;
+	font-weight: 500;
+	margin-bottom: .3rem;
+}
+
+.error {
+	display: block;
+	color: var(--danger);
+	font-size: .9rem;
+	margin-top: .3rem;
+}
+
+.form-actions {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+@media ( prefers-reduced-motion : no-preference) {
+	.btn {
+		transition: background .15s, filter .15s;
+	}
+}
