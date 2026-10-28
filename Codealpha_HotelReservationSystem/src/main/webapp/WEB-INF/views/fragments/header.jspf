@@ -1,0 +1,22 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Reservation System</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+<header>
+  <h1>&#127976; Hotel Reservation</h1>
+  <nav>
+    <a href="<c:url value='/rooms'/>">Rooms</a>
+    <a href="<c:url value='/bookings'/>">My Bookings</a>
+  </nav>
+</header>
+<main>
+<c:if test="${not empty msg}"><div class="alert ok"><c:out value="${msg}"/></div></c:if>
+<c:if test="${not empty error}"><div class="alert bad"><c:out value="${error}"/></div></c:if>
